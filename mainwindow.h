@@ -21,17 +21,16 @@ public:
 
 private slots:
     void on_Selectpa_clicked();
-
     void on_Connect_clicked();
-
     void on_verify_clicked();
-
     void on_pushButton_clicked();
+    void serial_received();
 
 private:
     Ui::MainWindow *ui;
-    QSerialPort *serial;
+    QSerialPort *Serial;
     QFile file;
     NPNT *npnt;
+    int tg=0;
 };
 #endif // MAINWINDOW_H

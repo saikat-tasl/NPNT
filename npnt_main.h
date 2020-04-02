@@ -19,6 +19,7 @@ class NPNT
 {
 private:
     struct data pa_data;
+
 public:
     void purse_xml(QByteArray &);
     void veryfi_pa(struct data *);
