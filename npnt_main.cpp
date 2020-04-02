@@ -62,7 +62,6 @@ void NPNT::purse_xml(QByteArray &pa)
                 n++;
             }
             temp_buffer[i] = '\0';i=0;
-            cout<<"operator id = "<<temp_buffer<<endl;
             size=(index-ptr)+1;
         }
         ptr++;
@@ -81,7 +80,6 @@ void NPNT::purse_xml(QByteArray &pa)
                 n++;
             }
             temp_buffer[i] = '\0';i=0;
-            cout<<"pilot id = "<<temp_buffer<<endl;
             size=(index-ptr)+1;
         }
         ptr++;
@@ -120,6 +118,11 @@ void NPNT::num_ofcoordinates(struct data *pa_data,QByteArray &pa)
 
         pa_data->lat = new double[count * 8];
         count=0;size=0;
+}
+
+void NPNT::veryfi_pa(struct data *data)
+{
+
 }
 
 void NPNT::get_flightdata()
