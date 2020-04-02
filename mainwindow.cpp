@@ -1,3 +1,4 @@
+#include <QtXml>
 #include <iostream>>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"

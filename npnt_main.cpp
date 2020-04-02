@@ -49,34 +49,43 @@ void NPNT::purse_xml(QByteArray &pa)
         ptr++;
     }j=0;
 
-    for(int j=0;j<4;j++)
+//extract operatorID
+    size = 0;ptr = pa.data();
+    while(*ptr)
     {
-        char temp[50];
-        printf("lat = %f, lon = %f\n",pa_data.lat[j],pa_data.lon[j]);
-    }
+        if((index = strstr(ptr+size,"operatorID=")))
+        {
+            n=index+12;
+            while(*n!='"')
+            {
+                temp_buffer[i++]=*n;
+                n++;
+            }
+            temp_buffer[i] = '\0';i=0;
+            cout<<"operator id = "<<temp_buffer<<endl;
+            size=(index-ptr)+1;
+        }
+        ptr++;
+    }j=0;
 
-//extract logitude
-//    ptr = pa.data();
-//    do
-//    {
-//        if((index = strstr(ptr+size,"longitude=")))
-//        {
-//             printf("\n%.15s\n",index+11);
-//             size=(index-ptr)+1;
-//        }
-//        ptr++;
-//    }while(*ptr);
-//extract logitude
-//    ptr = pa.data();
-//    do
-//    {
-//        if((index = strstr(ptr+size,"longitude=")))
-//        {
-//             printf("\n%.15s\n",index+11);
-//             size=(index-ptr)+1;
-//        }
-//        ptr++;
-//    }while(*ptr);
+//extract pilot id
+    size = 0;ptr = pa.data();
+    while(*ptr)
+    {
+        if((index = strstr(ptr+size,"Pilot id=")))
+        {
+            n=index+10;
+            while(*n!='"')
+            {
+                temp_buffer[i++]=*n;
+                n++;
+            }
+            temp_buffer[i] = '\0';i=0;
+            cout<<"pilot id = "<<temp_buffer<<endl;
+            size=(index-ptr)+1;
+        }
+        ptr++;
+    }j=0;
 }
 
 void NPNT::num_ofcoordinates(struct data *pa_data,QByteArray &pa)
